@@ -20,9 +20,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install -g yarn
@@ -31,7 +31,7 @@ jobs:
         yarn add
         yarn build
     - name: Archive build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with: 
         name: build
         path: build
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Download build
       uses: actions/download-artifact@v2
       with:
